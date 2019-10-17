@@ -18,7 +18,16 @@
         "shared/validators"
     ],
     "modules": ["core", "features", "shared"],
-    "components": ["core/api", "features/home"],
+    "components": [
+        {
+            "name": "core/api"
+        },
+        {
+            "name": "features/home",
+            "selector": "app-home-quedise",
+            "export": "true"
+        } 
+    ],
     "services": [],
     "pipes": [],
     "guards": [],

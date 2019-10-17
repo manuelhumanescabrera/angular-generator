@@ -58,7 +58,7 @@ if (modules) {
 // instalamos los componentes
 if (components) {
     for (let component of components) {
-        child_proccess.execSync(changePath + ' & ng g c ./' + component);
+        child_proccess.execSync(`${changePath} & ng g c ./${component.name} ${component.selector ? ' --selector='+ component.selector : ''} ${component.export ? ' --export='+ component.export : ''}`);
     }
 }
 // instalamos los servicios
