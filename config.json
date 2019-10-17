@@ -1,0 +1,44 @@
+{
+    "nameProject": "probando",
+    "prefix": "manu",
+    "angular": {
+        "assets": ["asset1", "asset2"],        
+        "styles": ["src/scss/front-modules.scss", "node_modules/primeng/resources/primeng.min.css"],        
+        "scripts": ["script1", "script2"]
+    },
+    "routes" : [
+        "core/api",
+        "features",
+        "shared/services",
+        "shared/pipes",
+        "shared/directives",
+        "shared/interfaces",
+        "shared/components",
+        "shared/constants",
+        "shared/validators"
+    ],
+    "modules": ["core", "features", "shared"],
+    "components": ["core/api", "features/home"],
+    "services": [],
+    "pipes": [],
+    "guards": [],
+    "directives": [],
+    "interfaces": [],
+    "scripts_node":[
+        {
+            "hola": "echo hola"
+        }
+    ],
+    "dependencies": [
+        {
+            "primeng": "^8.0.4", 
+            "primeicons": "^2.0.0", 
+            "@angular/animations": "^8.2.10"
+        }
+    ],
+    "devDependencies": [
+        {
+            "manu": "1.0.0"
+        }
+    ]
+}
