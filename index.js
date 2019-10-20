@@ -52,7 +52,7 @@ if(angular){
 // instalamos los modulos
 if (modules) {
     for (let module of modules) {
-        child_proccess.execSync(changePath + ' & ng g m ./' + module);
+        child_proccess.execSync(`${changePath} & ng g m ./${module.name} ${module.routing ? ' --routing=' + module.routing : ''} ${module.route ? ' --route=' + module.route : ''} ${module.parentModule ? ' --module=' + module.parentModule : ''}`);
     }
 }
 // instalamos los componentes
