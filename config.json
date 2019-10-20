@@ -2,9 +2,9 @@
     "nameProject": "probando",
     "prefix": "manu",
     "angular": {
-        "assets": ["asset1", "asset2"],        
+        "assets": [],        
         "styles": ["src/scss/front-modules.scss", "node_modules/primeng/resources/primeng.min.css"],        
-        "scripts": ["script1", "script2"]
+        "scripts": []
     },
     "routes" : [
         "core/api",
@@ -17,14 +17,29 @@
         "shared/constants",
         "shared/validators"
     ],
-    "modules": ["core", "features", "shared"],
+    "modules": [
+        {
+            "name": "core",
+            "parentModule": "app"
+        },
+        {
+            "name": "features",
+            "routing": "true",
+            "route": "core",
+            "parentModule": "app"
+        },
+        {
+            "name": "shared",
+            "parentModule": "app"
+        }
+    ],
     "components": [
         {
             "name": "core/api"
         },
         {
             "name": "features/home",
-            "selector": "app-home-quedise",
+            "selector": "app-home-propia",
             "export": "true"
         } 
     ],
@@ -35,7 +50,7 @@
     "interfaces": [],
     "scripts_node":[
         {
-            "hola": "echo hola"
+            "hola mundo": "echo hola mundo"
         }
     ],
     "dependencies": [
@@ -47,7 +62,7 @@
     ],
     "devDependencies": [
         {
-            "manu": "1.0.0"
+            "terminator": "^2.0.0"
         }
     ]
 }
