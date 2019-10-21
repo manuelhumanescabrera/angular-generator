@@ -1,10 +1,35 @@
 {
-    "nameProject": "probando",
-    "prefix": "manu",
+    "nameProject": "angular-seed",
+    "prefix": "dfront",
     "angular": {
         "assets": [],        
         "styles": ["src/scss/front-modules.scss", "node_modules/primeng/resources/primeng.min.css"],        
         "scripts": []
+    },
+    "tsconfig": {
+        "paths": {
+            "@app/*": [
+                "app/*"
+            ],
+            "@views/*": [
+                "app/views/*"
+            ],
+            "@guards/*": [
+                "app/shared/guards/*"
+            ],
+            "@services/*": [
+                "app/services/*"
+            ],
+            "@assets/*": [
+                "assets/*"
+            ],
+            "@api/*": [
+                "app/shared/api/*"
+            ],
+            "@shared/*": [
+                "app/shared/*"
+            ]
+        }
     },
     "routes" : [
         "core/api",
@@ -23,13 +48,21 @@
             "parentModule": "app"
         },
         {
+            "name": "core/auth",
+            "parentModule": "core"
+        },
+        {
+            "name": "shared",
+            "parentModule": "app"
+        },
+        {
             "name": "features",
             "routing": "true",
             "route": "core",
             "parentModule": "app"
-        },
+        },        
         {
-            "name": "shared",
+            "name": "views",
             "parentModule": "app"
         }
     ],
@@ -40,14 +73,31 @@
         {
             "name": "features/home",
             "selector": "app-home-propia",
-            "export": "true"
+            "export": "true",
+            "parentModule": "features"
         } 
     ],
-    "services": [],
-    "pipes": [],
-    "guards": [],
-    "directives": [],
-    "interfaces": [],
+    "services": [
+        "core/services/local-storage",
+        "shared/api/people/people"
+    ],
+    "pipes": [
+        {
+            "name": "shared/pipes/filter-by",
+            "export": "true",
+            "parentModule": "shared"
+        }
+    ],
+    "guards": ["shared/services/error"],
+    "directives": [
+        {
+            "name": "features/home",
+            "selector": "app-home-directive",
+            "export": "true",
+            "parentModule": "features"
+        }
+    ],
+    "interfaces": ["shared/api/people/people"],
     "scripts_node":[
         {
             "hola mundo": "echo hola mundo"
@@ -62,7 +112,7 @@
     ],
     "devDependencies": [
         {
-            "terminator": "^2.0.0"
+            "@fortawesome/fontawesome-free": "^5.8.0"
         }
     ]
 }
