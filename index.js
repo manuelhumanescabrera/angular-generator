@@ -19,6 +19,7 @@ const scriptsNode = config.scripts_node;
 const dependencies = config.dependencies;
 const devDependencies = config.devDependencies;
 const angular = config.angular;
+const tsconfig = config.tsconfig;
 
 child_proccess.execSync('cd' + path + ' & ng new ' + config.nameProject + ' --style=scss --routing --skip-install');
 
@@ -118,4 +119,17 @@ if (packageJSON && packageJSON.dependencies && packageJSON.devDependencies && pa
     var packageString = JSON.stringify(packageJSON, null, 4);
 
     fs.writeFileSync(pathFull + '/package.json', packageString);
+}
+
+// cargamos el archivo tsconfig.json
+const tsconfigJSON = require(pathFull + '/tsconfig.app.json');
+
+if (tsconfigJSON && tsconfigJSON.compilerOptions) {
+    if (tsconfig.paths) {
+        tsconfigJSON.compilerOptions.paths = tsconfig.paths;
+    }
+    
+    var tsconfigString = JSON.stringify(tsconfigJSON, null, 4);
+
+    fs.writeFileSync(pathFull + '/tsconfig.app.json', tsconfigString);
 }
