@@ -12,6 +12,8 @@ const components = config.components;
 const services = config.services;
 const pipes = config.pipes;
 const guards = config.guards;
+const directives = config.directives;
+const interfaces = config.interfaces;
 
 const scriptsNode = config.scripts_node;
 const dependencies = config.dependencies;
@@ -58,7 +60,7 @@ if (modules) {
 // instalamos los componentes
 if (components) {
     for (let component of components) {
-        child_proccess.execSync(`${changePath} & ng g c ./${component.name} ${component.selector ? ' --selector='+ component.selector : ''} ${component.export ? ' --export='+ component.export : ''}`);
+        child_proccess.execSync(`${changePath} & ng g c ./${component.name} ${component.selector ? ' --selector=' + component.selector : ''} ${component.export ? ' --export=' + component.export : ''} ${component.parentModule ? ' --module=' + component.parentModule : ''}`);
     }
 }
 // instalamos los servicios
@@ -70,13 +72,25 @@ if (services) {
 // instalamos los pipes
 if (pipes) {
     for (let pipe of pipes) {
-        child_proccess.execSync(changePath + ' & ng g p ./' + pipe);
+        child_proccess.execSync(`${changePath} & ng g p ./${pipe.name} ${pipe.export ? ' --export=' + pipe.export : ''} ${pipe.parentModule ? ' --module=' + pipe.parentModule : ''}`);
     }
 }
 // instalamos los guards
 if (guards) {
     for (let guard of guards) {
         child_proccess.execSync(changePath + ' & ng g g ./' + guard);
+    }
+}
+// instalamos las directivas
+if (directives) {
+    for (let directive of directives) {
+        child_proccess.execSync(`${changePath} & ng g d ./${directive.name} ${directive.selector ? ' --selector=' + directive.selector : ''} ${directive.export ? ' --export=' + directive.export : ''} ${directive.parentModule ? ' --module=' + directive.parentModule : ''}`);
+    }
+}
+// instalamos las interfaces
+if (interfaces) {
+    for (let interfaz of interfaces) {
+        child_proccess.execSync(changePath + ' & ng g g ./' + interfaz);
     }
 }
 
