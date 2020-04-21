@@ -101,7 +101,7 @@ if (interfaces) {
 // }
 
 // aqui se clona ITCSS denrto de nuestro proyecto
-child_proccess.execSync(changePath + ' & git clone https://steps.everis.com/git/DIJITSEV/dfront/ninja-seed/itcss.git ./src/scss');
+//child_proccess.execSync(changePath + ' & git clone https://steps.everis.com/git/DIJITSEV/dfront/ninja-seed/itcss.git ./src/scss');
 
 // cargamos el archivo package.json
 const packageJSON = require(pathFull + '/package.json');

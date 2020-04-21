@@ -3,7 +3,7 @@
     "prefix": "dfront",
     "angular": {
         "assets": [],        
-        "styles": ["src/scss/front-modules.scss", "node_modules/primeng/resources/primeng.min.css"],        
+        "styles": ["node_modules/primeng/resources/primeng.min.css"],        
         "scripts": []
     },
     "tsconfig": {
